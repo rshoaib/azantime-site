@@ -1,44 +1,1640 @@
 [
-    { "slug": "mecca", "city": "Makkah", "country": "Saudi Arabia", "lat": 21.4225, "lng": 39.8262 },
-    { "slug": "medina", "city": "Madinah", "country": "Saudi Arabia", "lat": 24.4672, "lng": 39.6112 },
-    { "slug": "jakarta", "city": "Jakarta", "country": "Indonesia", "lat": -6.2088, "lng": 106.8456 },
-    { "slug": "istanbul", "city": "Istanbul", "country": "Turkey", "lat": 41.0082, "lng": 28.9784 },
-    { "slug": "cairo", "city": "Cairo", "country": "Egypt", "lat": 30.0444, "lng": 31.2357 },
-    { "slug": "karachi", "city": "Karachi", "country": "Pakistan", "lat": 24.8607, "lng": 67.0011 },
-    { "slug": "dhaka", "city": "Dhaka", "country": "Bangladesh", "lat": 23.8103, "lng": 90.4125 },
-    { "slug": "dubai", "city": "Dubai", "country": "United Arab Emirates", "lat": 25.2048, "lng": 55.2708 },
-    { "slug": "kuala-lumpur", "city": "Kuala Lumpur", "country": "Malaysia", "lat": 3.1390, "lng": 101.6869 },
-    { "slug": "london", "city": "London", "country": "United Kingdom", "lat": 51.5074, "lng": -0.1278 },
-    { "slug": "new-york", "city": "New York", "country": "United States", "lat": 40.7128, "lng": -74.0060 },
-    { "slug": "toronto", "city": "Toronto", "country": "Canada", "lat": 43.6532, "lng": -79.3832 },
-    { "slug": "riyadh", "city": "Riyadh", "country": "Saudi Arabia", "lat": 24.7136, "lng": 46.6753 },
-    { "slug": "lahore", "city": "Lahore", "country": "Pakistan", "lat": 31.5497, "lng": 74.3436 },
-    { "slug": "doha", "city": "Doha", "country": "Qatar", "lat": 25.2854, "lng": 51.5310 },
-    { "slug": "kuwait-city", "city": "Kuwait City", "country": "Kuwait", "lat": 29.3759, "lng": 47.9774 },
-    { "slug": "amman", "city": "Amman", "country": "Jordan", "lat": 31.9454, "lng": 35.9284 },
-    { "slug": "casablanca", "city": "Casablanca", "country": "Morocco", "lat": 33.5731, "lng": -7.5898 },
-    { "slug": "lagos", "city": "Lagos", "country": "Nigeria", "lat": 6.5244, "lng": 3.3792 },
-    { "slug": "paris", "city": "Paris", "country": "France", "lat": 48.8566, "lng": 2.3522 },
-    { "slug": "berlin", "city": "Berlin", "country": "Germany", "lat": 52.5200, "lng": 13.4050 },
-    { "slug": "sydney", "city": "Sydney", "country": "Australia", "lat": -33.8688, "lng": 151.2093 },
-    { "slug": "tehran", "city": "Tehran", "country": "Iran", "lat": 35.6892, "lng": 51.3890 },
-    { "slug": "baghdad", "city": "Baghdad", "country": "Iraq", "lat": 33.3152, "lng": 44.3661 },
-    { "slug": "damascus", "city": "Damascus", "country": "Syria", "lat": 33.5138, "lng": 36.2765 },
-    { "slug": "hyderabad", "city": "Hyderabad", "country": "India", "lat": 17.3850, "lng": 78.4867 },
-    { "slug": "multan", "city": "Multan", "country": "Pakistan", "lat": 30.1575, "lng": 71.5249 },
-    { "slug": "faisalabad", "city": "Faisalabad", "country": "Pakistan", "lat": 31.4504, "lng": 73.1350 },
-    { "slug": "islamabad", "city": "Islamabad", "country": "Pakistan", "lat": 33.6844, "lng": 73.0479 },
-    { "slug": "marrakech", "city": "Marrakech", "country": "Morocco", "lat": 31.6295, "lng": -7.9811 },
-    { "slug": "tunis", "city": "Tunis", "country": "Tunisia", "lat": 36.8065, "lng": 10.1815 },
-    { "slug": "algiers", "city": "Algiers", "country": "Algeria", "lat": 36.7538, "lng": 3.0588 },
-    { "slug": "khartoum", "city": "Khartoum", "country": "Sudan", "lat": 15.5007, "lng": 32.5599 },
-    { "slug": "bandung", "city": "Bandung", "country": "Indonesia", "lat": -6.9175, "lng": 107.6191 },
-    { "slug": "surabaya", "city": "Surabaya", "country": "Indonesia", "lat": -7.2575, "lng": 112.7521 },
-    { "slug": "birmingham", "city": "Birmingham", "country": "United Kingdom", "lat": 52.4862, "lng": -1.8904 },
-    { "slug": "manchester", "city": "Manchester", "country": "United Kingdom", "lat": 53.4808, "lng": -2.2426 },
-    { "slug": "chicago", "city": "Chicago", "country": "United States", "lat": 41.8781, "lng": -87.6298 },
-    { "slug": "los-angeles", "city": "Los Angeles", "country": "United States", "lat": 34.0522, "lng": -118.2437 },
-    { "slug": "singapore", "city": "Singapore", "country": "Singapore", "lat": 1.3521, "lng": 103.8198 },
-    { "slug": "tashkent", "city": "Tashkent", "country": "Uzbekistan", "lat": 41.2995, "lng": 69.2401 },
-    { "slug": "sarajevo", "city": "Sarajevo", "country": "Bosnia and Herzegovina", "lat": 43.8563, "lng": 18.4131 }
+  {
+    "slug": "mecca",
+    "city": "Makkah",
+    "country": "Saudi Arabia",
+    "lat": 21.4225,
+    "lng": 39.8262,
+    "qibla": 0,
+    "qiblaCompass": "north",
+    "method": "Umm al-Qura University, Makkah",
+    "asr": "standard",
+    "asrNote": "Hanbali practice, which uses the standard Asr calculation",
+    "highLat": false,
+    "tz": 3,
+    "fajrAngle": 18.5,
+    "ishaAngle": 18.5,
+    "ranges": {
+      "fajr": {
+        "earliest": "04:10",
+        "latest": "05:34"
+      },
+      "dhuhr": {
+        "earliest": "12:20",
+        "latest": "12:22"
+      },
+      "asr": {
+        "earliest": "15:25",
+        "latest": "15:46"
+      },
+      "maghrib": {
+        "earliest": "17:45",
+        "latest": "19:04"
+      },
+      "isha": {
+        "earliest": "19:07",
+        "latest": "20:32"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "medina",
+    "city": "Madinah",
+    "country": "Saudi Arabia",
+    "lat": 24.4672,
+    "lng": 39.6112,
+    "qibla": 176.2,
+    "qiblaCompass": "south",
+    "method": "Umm al-Qura University, Makkah",
+    "asr": "standard",
+    "asrNote": "Hanbali practice, which uses the standard Asr calculation",
+    "highLat": false,
+    "tz": 3,
+    "fajrAngle": 18.5,
+    "ishaAngle": 18.5,
+    "ranges": {
+      "fajr": {
+        "earliest": "04:01",
+        "latest": "05:39"
+      },
+      "dhuhr": {
+        "earliest": "12:20",
+        "latest": "12:23"
+      },
+      "asr": {
+        "earliest": "15:20",
+        "latest": "15:50"
+      },
+      "maghrib": {
+        "earliest": "17:40",
+        "latest": "19:11"
+      },
+      "isha": {
+        "earliest": "19:04",
+        "latest": "20:43"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "jakarta",
+    "city": "Jakarta",
+    "country": "Indonesia",
+    "lat": -6.2088,
+    "lng": 106.8456,
+    "qibla": 295.2,
+    "qiblaCompass": "west-north-west",
+    "method": "Kementerian Agama (Kemenag)",
+    "asr": "standard",
+    "asrNote": "Shafi’i practice, which uses the standard Asr calculation",
+    "highLat": false,
+    "tz": 7,
+    "fajrAngle": 20,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "04:13",
+        "latest": "04:37"
+      },
+      "dhuhr": {
+        "earliest": "11:52",
+        "latest": "11:54"
+      },
+      "asr": {
+        "earliest": "14:54",
+        "latest": "15:20"
+      },
+      "maghrib": {
+        "earliest": "17:46",
+        "latest": "18:07"
+      },
+      "isha": {
+        "earliest": "19:00",
+        "latest": "19:23"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "istanbul",
+    "city": "Istanbul",
+    "country": "Turkey",
+    "lat": 41.0082,
+    "lng": 28.9784,
+    "qibla": 151.6,
+    "qiblaCompass": "south-south-east",
+    "method": "Diyanet İşleri Başkanlığı",
+    "asr": "hanafi",
+    "asrNote": "Hanafi practice",
+    "highLat": false,
+    "tz": 3,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:23",
+        "latest": "06:48"
+      },
+      "dhuhr": {
+        "earliest": "13:03",
+        "latest": "13:05"
+      },
+      "asr": {
+        "earliest": "16:00",
+        "latest": "18:19"
+      },
+      "maghrib": {
+        "earliest": "17:41",
+        "latest": "20:38"
+      },
+      "isha": {
+        "earliest": "19:14",
+        "latest": "22:36"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "cairo",
+    "city": "Cairo",
+    "country": "Egypt",
+    "lat": 30.0444,
+    "lng": 31.2357,
+    "qibla": 136.1,
+    "qiblaCompass": "south-east",
+    "method": "Egyptian General Authority of Survey",
+    "asr": "standard",
+    "asrNote": "the standard calculation, though Hanafi timings are also published",
+    "highLat": false,
+    "tz": 2,
+    "fajrAngle": 19.5,
+    "ishaAngle": 17.5,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:07",
+        "latest": "05:16"
+      },
+      "dhuhr": {
+        "earliest": "11:54",
+        "latest": "11:56"
+      },
+      "asr": {
+        "earliest": "14:43",
+        "latest": "15:32"
+      },
+      "maghrib": {
+        "earliest": "17:01",
+        "latest": "18:58"
+      },
+      "isha": {
+        "earliest": "18:24",
+        "latest": "20:31"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "karachi",
+    "city": "Karachi",
+    "country": "Pakistan",
+    "lat": 24.8607,
+    "lng": 67.0011,
+    "qibla": 267.7,
+    "qiblaCompass": "west",
+    "method": "University of Islamic Sciences, Karachi",
+    "asr": "hanafi",
+    "asrNote": "Hanafi practice",
+    "highLat": false,
+    "tz": 5,
+    "fajrAngle": 18,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "04:13",
+        "latest": "05:53"
+      },
+      "dhuhr": {
+        "earliest": "12:31",
+        "latest": "12:33"
+      },
+      "asr": {
+        "earliest": "16:14",
+        "latest": "17:15"
+      },
+      "maghrib": {
+        "earliest": "17:50",
+        "latest": "19:23"
+      },
+      "isha": {
+        "earliest": "19:11",
+        "latest": "20:52"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "dhaka",
+    "city": "Dhaka",
+    "country": "Bangladesh",
+    "lat": 23.8103,
+    "lng": 90.4125,
+    "qibla": 277.6,
+    "qiblaCompass": "west",
+    "method": "Islamic Foundation Bangladesh",
+    "asr": "hanafi",
+    "asrNote": "Hanafi practice",
+    "highLat": false,
+    "tz": 6,
+    "fajrAngle": 18,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:42",
+        "latest": "05:18"
+      },
+      "dhuhr": {
+        "earliest": "11:57",
+        "latest": "11:59"
+      },
+      "asr": {
+        "earliest": "15:42",
+        "latest": "16:39"
+      },
+      "maghrib": {
+        "earliest": "17:18",
+        "latest": "18:47"
+      },
+      "isha": {
+        "earliest": "18:39",
+        "latest": "20:14"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "dubai",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "lat": 25.2048,
+    "lng": 55.2708,
+    "qibla": 258.2,
+    "qiblaCompass": "west-south-west",
+    "method": "General Authority of Islamic Affairs and Endowments",
+    "asr": "standard",
+    "asrNote": "the standard calculation",
+    "highLat": false,
+    "tz": 4,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:58",
+        "latest": "05:40"
+      },
+      "dhuhr": {
+        "earliest": "12:18",
+        "latest": "12:20"
+      },
+      "asr": {
+        "earliest": "15:16",
+        "latest": "15:48"
+      },
+      "maghrib": {
+        "earliest": "17:36",
+        "latest": "19:10"
+      },
+      "isha": {
+        "earliest": "18:53",
+        "latest": "20:34"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "kuala-lumpur",
+    "city": "Kuala Lumpur",
+    "country": "Malaysia",
+    "lat": 3.139,
+    "lng": 101.6869,
+    "qibla": 292.5,
+    "qiblaCompass": "west-north-west",
+    "method": "JAKIM",
+    "asr": "standard",
+    "asrNote": "Shafi’i practice",
+    "highLat": false,
+    "tz": 8,
+    "fajrAngle": 20,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "05:40",
+        "latest": "05:55"
+      },
+      "dhuhr": {
+        "earliest": "13:12",
+        "latest": "13:14"
+      },
+      "asr": {
+        "earliest": "16:15",
+        "latest": "16:40"
+      },
+      "maghrib": {
+        "earliest": "19:11",
+        "latest": "19:23"
+      },
+      "isha": {
+        "earliest": "20:23",
+        "latest": "20:38"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "london",
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "qibla": 119,
+    "qiblaCompass": "east-south-east",
+    "method": "no single national standard — mosques differ",
+    "asr": "mixed",
+    "asrNote": "both conventions, depending on the masjid",
+    "highLat": true,
+    "tz": 0,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "00:34",
+        "latest": "06:01"
+      },
+      "dhuhr": {
+        "earliest": "11:59",
+        "latest": "12:01"
+      },
+      "asr": {
+        "earliest": "13:39",
+        "latest": "16:23"
+      },
+      "maghrib": {
+        "earliest": "15:55",
+        "latest": "20:20"
+      },
+      "isha": {
+        "earliest": "17:53",
+        "latest": "23:24"
+      }
+    },
+    "twilightGapDays": 12
+  },
+  {
+    "slug": "new-york",
+    "city": "New York",
+    "country": "United States",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "qibla": 58.5,
+    "qiblaCompass": "east-north-east",
+    "method": "ISNA (Islamic Society of North America)",
+    "asr": "mixed",
+    "asrNote": "both conventions, depending on the masjid",
+    "highLat": false,
+    "tz": -5,
+    "fajrAngle": 15,
+    "ishaAngle": 15,
+    "ranges": {
+      "fajr": {
+        "earliest": "02:43",
+        "latest": "05:56"
+      },
+      "dhuhr": {
+        "earliest": "11:55",
+        "latest": "11:57"
+      },
+      "asr": {
+        "earliest": "14:16",
+        "latest": "15:56"
+      },
+      "maghrib": {
+        "earliest": "16:33",
+        "latest": "19:29"
+      },
+      "isha": {
+        "earliest": "17:56",
+        "latest": "21:09"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "toronto",
+    "city": "Toronto",
+    "country": "Canada",
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "qibla": 54.6,
+    "qiblaCompass": "north-east",
+    "method": "ISNA (Islamic Society of North America)",
+    "asr": "mixed",
+    "asrNote": "both conventions, depending on the masjid",
+    "highLat": false,
+    "tz": -5,
+    "fajrAngle": 15,
+    "ishaAngle": 15,
+    "ranges": {
+      "fajr": {
+        "earliest": "02:44",
+        "latest": "06:23"
+      },
+      "dhuhr": {
+        "earliest": "12:16",
+        "latest": "12:18"
+      },
+      "asr": {
+        "earliest": "14:28",
+        "latest": "16:24"
+      },
+      "maghrib": {
+        "earliest": "16:45",
+        "latest": "20:01"
+      },
+      "isha": {
+        "earliest": "18:12",
+        "latest": "21:51"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "riyadh",
+    "city": "Riyadh",
+    "country": "Saudi Arabia",
+    "lat": 24.7136,
+    "lng": 46.6753,
+    "qibla": 243.8,
+    "qiblaCompass": "west-south-west",
+    "method": "Umm al-Qura University, Makkah",
+    "asr": "standard",
+    "asrNote": "Hanbali practice, which uses the standard Asr calculation",
+    "highLat": false,
+    "tz": 3,
+    "fajrAngle": 18.5,
+    "ishaAngle": 18.5,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:32",
+        "latest": "05:11"
+      },
+      "dhuhr": {
+        "earliest": "11:52",
+        "latest": "11:54"
+      },
+      "asr": {
+        "earliest": "14:52",
+        "latest": "15:22"
+      },
+      "maghrib": {
+        "earliest": "17:11",
+        "latest": "18:43"
+      },
+      "isha": {
+        "earliest": "18:35",
+        "latest": "20:15"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "lahore",
+    "city": "Lahore",
+    "country": "Pakistan",
+    "lat": 31.5497,
+    "lng": 74.3436,
+    "qibla": 260.3,
+    "qiblaCompass": "west",
+    "method": "University of Islamic Sciences, Karachi",
+    "asr": "hanafi",
+    "asrNote": "Hanafi practice",
+    "highLat": false,
+    "tz": 5,
+    "fajrAngle": 18,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:17",
+        "latest": "05:33"
+      },
+      "dhuhr": {
+        "earliest": "12:02",
+        "latest": "12:04"
+      },
+      "asr": {
+        "earliest": "15:28",
+        "latest": "16:59"
+      },
+      "maghrib": {
+        "earliest": "17:05",
+        "latest": "19:09"
+      },
+      "isha": {
+        "earliest": "18:32",
+        "latest": "20:48"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "doha",
+    "city": "Doha",
+    "country": "Qatar",
+    "lat": 25.2854,
+    "lng": 51.531,
+    "qibla": 252.6,
+    "qiblaCompass": "west-south-west",
+    "method": "Qatar Calendar House",
+    "asr": "standard",
+    "asrNote": "the standard calculation",
+    "highLat": false,
+    "tz": 3,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:13",
+        "latest": "04:55"
+      },
+      "dhuhr": {
+        "earliest": "11:33",
+        "latest": "11:35"
+      },
+      "asr": {
+        "earliest": "14:31",
+        "latest": "15:04"
+      },
+      "maghrib": {
+        "earliest": "16:51",
+        "latest": "18:25"
+      },
+      "isha": {
+        "earliest": "18:08",
+        "latest": "19:49"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "kuwait-city",
+    "city": "Kuwait City",
+    "country": "Kuwait",
+    "lat": 29.3759,
+    "lng": 47.9774,
+    "qibla": 224.6,
+    "qiblaCompass": "south-west",
+    "method": "the Kuwait method",
+    "asr": "standard",
+    "asrNote": "the standard calculation",
+    "highLat": false,
+    "tz": 3,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:12",
+        "latest": "05:15"
+      },
+      "dhuhr": {
+        "earliest": "11:47",
+        "latest": "11:49"
+      },
+      "asr": {
+        "earliest": "14:37",
+        "latest": "15:24"
+      },
+      "maghrib": {
+        "earliest": "16:56",
+        "latest": "18:49"
+      },
+      "isha": {
+        "earliest": "18:16",
+        "latest": "20:18"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "amman",
+    "city": "Amman",
+    "country": "Jordan",
+    "lat": 31.9454,
+    "lng": 35.9284,
+    "qibla": 160.8,
+    "qiblaCompass": "south-south-east",
+    "method": "Muslim World League",
+    "asr": "standard",
+    "asrNote": "the standard calculation",
+    "highLat": false,
+    "tz": 3,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:49",
+        "latest": "06:07"
+      },
+      "dhuhr": {
+        "earliest": "12:35",
+        "latest": "12:37"
+      },
+      "asr": {
+        "earliest": "15:20",
+        "latest": "16:17"
+      },
+      "maghrib": {
+        "earliest": "17:38",
+        "latest": "19:44"
+      },
+      "isha": {
+        "earliest": "19:00",
+        "latest": "21:17"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "casablanca",
+    "city": "Casablanca",
+    "country": "Morocco",
+    "lat": 33.5731,
+    "lng": -7.5898,
+    "qibla": 93.7,
+    "qiblaCompass": "east",
+    "method": "Ministry of Habous and Islamic Affairs",
+    "asr": "standard",
+    "asrNote": "Maliki practice, which uses the standard Asr calculation",
+    "highLat": false,
+    "tz": 1,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "04:35",
+        "latest": "07:03"
+      },
+      "dhuhr": {
+        "earliest": "13:29",
+        "latest": "13:31"
+      },
+      "asr": {
+        "earliest": "16:10",
+        "latest": "17:15"
+      },
+      "maghrib": {
+        "earliest": "18:28",
+        "latest": "20:42"
+      },
+      "isha": {
+        "earliest": "19:52",
+        "latest": "22:19"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "lagos",
+    "city": "Lagos",
+    "country": "Nigeria",
+    "lat": 6.5244,
+    "lng": 3.3792,
+    "qibla": 63.3,
+    "qiblaCompass": "east-north-east",
+    "method": "Muslim World League",
+    "asr": "standard",
+    "asrNote": "Maliki practice",
+    "highLat": false,
+    "tz": 1,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "05:15",
+        "latest": "05:40"
+      },
+      "dhuhr": {
+        "earliest": "12:45",
+        "latest": "12:47"
+      },
+      "asr": {
+        "earliest": "15:48",
+        "latest": "16:14"
+      },
+      "maghrib": {
+        "earliest": "18:39",
+        "latest": "19:02"
+      },
+      "isha": {
+        "earliest": "19:49",
+        "latest": "20:14"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "paris",
+    "city": "Paris",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "qibla": 119.2,
+    "qiblaCompass": "east-south-east",
+    "method": "UOIF (Union des Organisations Islamiques de France)",
+    "asr": "mixed",
+    "asrNote": "both conventions, depending on the mosque",
+    "highLat": true,
+    "tz": 1,
+    "fajrAngle": 12,
+    "ishaAngle": 12,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:02",
+        "latest": "07:25"
+      },
+      "dhuhr": {
+        "earliest": "12:49",
+        "latest": "12:52"
+      },
+      "asr": {
+        "earliest": "14:41",
+        "latest": "17:08"
+      },
+      "maghrib": {
+        "earliest": "16:58",
+        "latest": "20:56"
+      },
+      "isha": {
+        "earliest": "18:16",
+        "latest": "22:39"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "berlin",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "qibla": 136.7,
+    "qiblaCompass": "south-east",
+    "method": "Muslim World League",
+    "asr": "mixed",
+    "asrNote": "both conventions, depending on the mosque",
+    "highLat": true,
+    "tz": 1,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "00:44",
+        "latest": "06:09"
+      },
+      "dhuhr": {
+        "earliest": "12:05",
+        "latest": "12:07"
+      },
+      "asr": {
+        "earliest": "13:40",
+        "latest": "16:31"
+      },
+      "maghrib": {
+        "earliest": "15:56",
+        "latest": "20:31"
+      },
+      "isha": {
+        "earliest": "17:57",
+        "latest": "23:32"
+      }
+    },
+    "twilightGapDays": 14
+  },
+  {
+    "slug": "sydney",
+    "city": "Sydney",
+    "country": "Australia",
+    "lat": -33.8688,
+    "lng": 151.2093,
+    "qibla": 277.5,
+    "qiblaCompass": "west",
+    "method": "Muslim World League",
+    "asr": "mixed",
+    "asrNote": "both conventions, depending on the masjid",
+    "highLat": false,
+    "tz": 10,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "02:58",
+        "latest": "05:29"
+      },
+      "dhuhr": {
+        "earliest": "11:54",
+        "latest": "11:56"
+      },
+      "asr": {
+        "earliest": "14:34",
+        "latest": "15:40"
+      },
+      "maghrib": {
+        "earliest": "16:52",
+        "latest": "19:07"
+      },
+      "isha": {
+        "earliest": "18:17",
+        "latest": "20:45"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "tehran",
+    "city": "Tehran",
+    "country": "Iran",
+    "lat": 35.6892,
+    "lng": 51.389,
+    "qibla": 218.4,
+    "qiblaCompass": "south-west",
+    "method": "Institute of Geophysics, University of Tehran",
+    "asr": "standard",
+    "asrNote": "the standard calculation",
+    "highLat": false,
+    "tz": 3.5,
+    "fajrAngle": 17.7,
+    "ishaAngle": 14,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:01",
+        "latest": "05:42"
+      },
+      "dhuhr": {
+        "earliest": "12:03",
+        "latest": "12:05"
+      },
+      "asr": {
+        "earliest": "14:39",
+        "latest": "15:54"
+      },
+      "maghrib": {
+        "earliest": "16:56",
+        "latest": "19:22"
+      },
+      "isha": {
+        "earliest": "18:07",
+        "latest": "20:42"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "baghdad",
+    "city": "Baghdad",
+    "country": "Iraq",
+    "lat": 33.3152,
+    "lng": 44.3661,
+    "qibla": 199.8,
+    "qiblaCompass": "south-south-west",
+    "method": "Muslim World League",
+    "asr": "standard",
+    "asrNote": "the standard calculation, though Hanafi timings are widely used",
+    "highLat": false,
+    "tz": 3,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:09",
+        "latest": "05:35"
+      },
+      "dhuhr": {
+        "earliest": "12:01",
+        "latest": "12:03"
+      },
+      "asr": {
+        "earliest": "14:43",
+        "latest": "15:47"
+      },
+      "maghrib": {
+        "earliest": "17:01",
+        "latest": "19:13"
+      },
+      "isha": {
+        "earliest": "18:25",
+        "latest": "20:50"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "damascus",
+    "city": "Damascus",
+    "country": "Syria",
+    "lat": 33.5138,
+    "lng": 36.2765,
+    "qibla": 164.5,
+    "qiblaCompass": "south-south-east",
+    "method": "Muslim World League",
+    "asr": "standard",
+    "asrNote": "the standard calculation, though Hanafi timings are widely used",
+    "highLat": false,
+    "tz": 3,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:40",
+        "latest": "06:08"
+      },
+      "dhuhr": {
+        "earliest": "12:34",
+        "latest": "12:36"
+      },
+      "asr": {
+        "earliest": "15:15",
+        "latest": "16:19"
+      },
+      "maghrib": {
+        "earliest": "17:33",
+        "latest": "19:46"
+      },
+      "isha": {
+        "earliest": "18:57",
+        "latest": "21:23"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "hyderabad",
+    "city": "Hyderabad",
+    "country": "India",
+    "lat": 17.385,
+    "lng": 78.4867,
+    "qibla": 282.7,
+    "qiblaCompass": "west-north-west",
+    "method": "University of Islamic Sciences, Karachi",
+    "asr": "hanafi",
+    "asrNote": "Hanafi practice is most common",
+    "highLat": false,
+    "tz": 5.5,
+    "fajrAngle": 18,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "04:19",
+        "latest": "05:26"
+      },
+      "dhuhr": {
+        "earliest": "12:15",
+        "latest": "12:17"
+      },
+      "asr": {
+        "earliest": "16:13",
+        "latest": "16:53"
+      },
+      "maghrib": {
+        "earliest": "17:49",
+        "latest": "18:51"
+      },
+      "isha": {
+        "earliest": "19:06",
+        "latest": "20:13"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "multan",
+    "city": "Multan",
+    "country": "Pakistan",
+    "lat": 30.1575,
+    "lng": 71.5249,
+    "qibla": 260.5,
+    "qiblaCompass": "west",
+    "method": "University of Islamic Sciences, Karachi",
+    "asr": "hanafi",
+    "asrNote": "Hanafi practice",
+    "highLat": false,
+    "tz": 5,
+    "fajrAngle": 18,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:34",
+        "latest": "05:42"
+      },
+      "dhuhr": {
+        "earliest": "12:13",
+        "latest": "12:15"
+      },
+      "asr": {
+        "earliest": "15:43",
+        "latest": "17:07"
+      },
+      "maghrib": {
+        "earliest": "17:20",
+        "latest": "19:17"
+      },
+      "isha": {
+        "earliest": "18:45",
+        "latest": "20:54"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "faisalabad",
+    "city": "Faisalabad",
+    "country": "Pakistan",
+    "lat": 31.4504,
+    "lng": 73.135,
+    "qibla": 259.5,
+    "qiblaCompass": "west",
+    "method": "University of Islamic Sciences, Karachi",
+    "asr": "hanafi",
+    "asrNote": "Hanafi practice",
+    "highLat": false,
+    "tz": 5,
+    "fajrAngle": 18,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:22",
+        "latest": "05:38"
+      },
+      "dhuhr": {
+        "earliest": "12:06",
+        "latest": "12:08"
+      },
+      "asr": {
+        "earliest": "15:33",
+        "latest": "17:04"
+      },
+      "maghrib": {
+        "earliest": "17:10",
+        "latest": "19:13"
+      },
+      "isha": {
+        "earliest": "18:37",
+        "latest": "20:53"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "islamabad",
+    "city": "Islamabad",
+    "country": "Pakistan",
+    "lat": 33.6844,
+    "lng": 73.0479,
+    "qibla": 255.9,
+    "qiblaCompass": "west-south-west",
+    "method": "University of Islamic Sciences, Karachi",
+    "asr": "hanafi",
+    "asrNote": "Hanafi practice",
+    "highLat": false,
+    "tz": 5,
+    "fajrAngle": 18,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:12",
+        "latest": "05:41"
+      },
+      "dhuhr": {
+        "earliest": "12:07",
+        "latest": "12:09"
+      },
+      "asr": {
+        "earliest": "15:27",
+        "latest": "17:08"
+      },
+      "maghrib": {
+        "earliest": "17:05",
+        "latest": "19:20"
+      },
+      "isha": {
+        "earliest": "18:34",
+        "latest": "21:04"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "marrakech",
+    "city": "Marrakech",
+    "country": "Morocco",
+    "lat": 31.6295,
+    "lng": -7.9811,
+    "qibla": 91.4,
+    "qiblaCompass": "east",
+    "method": "Ministry of Habous and Islamic Affairs",
+    "asr": "standard",
+    "asrNote": "Maliki practice, which uses the standard Asr calculation",
+    "highLat": false,
+    "tz": 1,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "04:46",
+        "latest": "07:02"
+      },
+      "dhuhr": {
+        "earliest": "13:31",
+        "latest": "13:33"
+      },
+      "asr": {
+        "earliest": "16:16",
+        "latest": "17:12"
+      },
+      "maghrib": {
+        "earliest": "18:34",
+        "latest": "20:38"
+      },
+      "isha": {
+        "earliest": "19:56",
+        "latest": "22:12"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "tunis",
+    "city": "Tunis",
+    "country": "Tunisia",
+    "lat": 36.8065,
+    "lng": 10.1815,
+    "qibla": 112.7,
+    "qiblaCompass": "east-south-east",
+    "method": "Ministry of Religious Affairs",
+    "asr": "standard",
+    "asrNote": "Maliki practice",
+    "highLat": false,
+    "tz": 1,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:07",
+        "latest": "05:57"
+      },
+      "dhuhr": {
+        "earliest": "12:18",
+        "latest": "12:20"
+      },
+      "asr": {
+        "earliest": "14:51",
+        "latest": "16:11"
+      },
+      "maghrib": {
+        "earliest": "17:08",
+        "latest": "19:40"
+      },
+      "isha": {
+        "earliest": "18:36",
+        "latest": "21:24"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "algiers",
+    "city": "Algiers",
+    "country": "Algeria",
+    "lat": 36.7538,
+    "lng": 3.0588,
+    "qibla": 105.4,
+    "qiblaCompass": "east-south-east",
+    "method": "Ministry of Religious Affairs",
+    "asr": "standard",
+    "asrNote": "Maliki practice",
+    "highLat": false,
+    "tz": 1,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:36",
+        "latest": "06:25"
+      },
+      "dhuhr": {
+        "earliest": "12:47",
+        "latest": "12:49"
+      },
+      "asr": {
+        "earliest": "15:19",
+        "latest": "16:39"
+      },
+      "maghrib": {
+        "earliest": "17:37",
+        "latest": "20:08"
+      },
+      "isha": {
+        "earliest": "19:05",
+        "latest": "21:53"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "khartoum",
+    "city": "Khartoum",
+    "country": "Sudan",
+    "lat": 15.5007,
+    "lng": 32.5599,
+    "qibla": 48.2,
+    "qiblaCompass": "north-east",
+    "method": "Muslim World League",
+    "asr": "standard",
+    "asrNote": "the standard calculation",
+    "highLat": false,
+    "tz": 2,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:58",
+        "latest": "04:57"
+      },
+      "dhuhr": {
+        "earliest": "11:49",
+        "latest": "11:51"
+      },
+      "asr": {
+        "earliest": "14:58",
+        "latest": "15:15"
+      },
+      "maghrib": {
+        "earliest": "17:26",
+        "latest": "18:21"
+      },
+      "isha": {
+        "earliest": "18:38",
+        "latest": "19:37"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "bandung",
+    "city": "Bandung",
+    "country": "Indonesia",
+    "lat": -6.9175,
+    "lng": 107.6191,
+    "qibla": 295.2,
+    "qiblaCompass": "west-north-west",
+    "method": "Kementerian Agama (Kemenag)",
+    "asr": "standard",
+    "asrNote": "Shafi’i practice, which uses the standard Asr calculation",
+    "highLat": false,
+    "tz": 7,
+    "fajrAngle": 20,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "04:08",
+        "latest": "04:35"
+      },
+      "dhuhr": {
+        "earliest": "11:48",
+        "latest": "11:50"
+      },
+      "asr": {
+        "earliest": "14:52",
+        "latest": "15:17"
+      },
+      "maghrib": {
+        "earliest": "17:41",
+        "latest": "18:05"
+      },
+      "isha": {
+        "earliest": "18:56",
+        "latest": "19:22"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "surabaya",
+    "city": "Surabaya",
+    "country": "Indonesia",
+    "lat": -7.2575,
+    "lng": 112.7521,
+    "qibla": 294,
+    "qiblaCompass": "west-north-west",
+    "method": "Kementerian Agama (Kemenag)",
+    "asr": "standard",
+    "asrNote": "Shafi’i practice, which uses the standard Asr calculation",
+    "highLat": false,
+    "tz": 7,
+    "fajrAngle": 20,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:47",
+        "latest": "04:15"
+      },
+      "dhuhr": {
+        "earliest": "11:28",
+        "latest": "11:30"
+      },
+      "asr": {
+        "earliest": "14:30",
+        "latest": "14:56"
+      },
+      "maghrib": {
+        "earliest": "17:20",
+        "latest": "17:45"
+      },
+      "isha": {
+        "earliest": "18:35",
+        "latest": "19:02"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "birmingham",
+    "city": "Birmingham",
+    "country": "United Kingdom",
+    "lat": 52.4862,
+    "lng": -1.8904,
+    "qibla": 118,
+    "qiblaCompass": "east-south-east",
+    "method": "no single national standard — mosques differ",
+    "asr": "mixed",
+    "asrNote": "both conventions, depending on the masjid",
+    "highLat": true,
+    "tz": 0,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "00:47",
+        "latest": "06:10"
+      },
+      "dhuhr": {
+        "earliest": "12:06",
+        "latest": "12:09"
+      },
+      "asr": {
+        "earliest": "13:42",
+        "latest": "16:33"
+      },
+      "maghrib": {
+        "earliest": "15:57",
+        "latest": "20:32"
+      },
+      "isha": {
+        "earliest": "17:58",
+        "latest": "23:32"
+      }
+    },
+    "twilightGapDays": 14
+  },
+  {
+    "slug": "manchester",
+    "city": "Manchester",
+    "country": "United Kingdom",
+    "lat": 53.4808,
+    "lng": -2.2426,
+    "qibla": 118.5,
+    "qiblaCompass": "east-south-east",
+    "method": "no single national standard — mosques differ",
+    "asr": "mixed",
+    "asrNote": "both conventions, depending on the masjid",
+    "highLat": true,
+    "tz": 0,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "00:57",
+        "latest": "06:13"
+      },
+      "dhuhr": {
+        "earliest": "12:08",
+        "latest": "12:10"
+      },
+      "asr": {
+        "earliest": "13:38",
+        "latest": "16:36"
+      },
+      "maghrib": {
+        "earliest": "15:53",
+        "latest": "20:40"
+      },
+      "isha": {
+        "earliest": "17:57",
+        "latest": "23:29"
+      }
+    },
+    "twilightGapDays": 16
+  },
+  {
+    "slug": "chicago",
+    "city": "Chicago",
+    "country": "United States",
+    "lat": 41.8781,
+    "lng": -87.6298,
+    "qibla": 48.7,
+    "qiblaCompass": "north-east",
+    "method": "ISNA (Islamic Society of North America)",
+    "asr": "mixed",
+    "asrNote": "both conventions, depending on the masjid",
+    "highLat": false,
+    "tz": -6,
+    "fajrAngle": 15,
+    "ishaAngle": 15,
+    "ranges": {
+      "fajr": {
+        "earliest": "02:30",
+        "latest": "05:53"
+      },
+      "dhuhr": {
+        "earliest": "11:49",
+        "latest": "11:51"
+      },
+      "asr": {
+        "earliest": "14:07",
+        "latest": "15:53"
+      },
+      "maghrib": {
+        "earliest": "16:24",
+        "latest": "19:27"
+      },
+      "isha": {
+        "earliest": "17:48",
+        "latest": "21:11"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "los-angeles",
+    "city": "Los Angeles",
+    "country": "United States",
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "qibla": 23.9,
+    "qiblaCompass": "north-north-east",
+    "method": "ISNA (Islamic Society of North America)",
+    "asr": "mixed",
+    "asrNote": "both conventions, depending on the masjid",
+    "highLat": false,
+    "tz": -8,
+    "fajrAngle": 15,
+    "ishaAngle": 15,
+    "ranges": {
+      "fajr": {
+        "earliest": "03:16",
+        "latest": "05:42"
+      },
+      "dhuhr": {
+        "earliest": "11:52",
+        "latest": "11:54"
+      },
+      "asr": {
+        "earliest": "14:31",
+        "latest": "15:39"
+      },
+      "maghrib": {
+        "earliest": "16:49",
+        "latest": "19:06"
+      },
+      "isha": {
+        "earliest": "18:04",
+        "latest": "20:30"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "singapore",
+    "city": "Singapore",
+    "country": "Singapore",
+    "lat": 1.3521,
+    "lng": 103.8198,
+    "qibla": 293,
+    "qiblaCompass": "west-north-west",
+    "method": "MUIS",
+    "asr": "standard",
+    "asrNote": "Shafi’i practice",
+    "highLat": false,
+    "tz": 8,
+    "fajrAngle": 20,
+    "ishaAngle": 18,
+    "ranges": {
+      "fajr": {
+        "earliest": "05:35",
+        "latest": "05:46"
+      },
+      "dhuhr": {
+        "earliest": "13:04",
+        "latest": "13:06"
+      },
+      "asr": {
+        "earliest": "16:06",
+        "latest": "16:31"
+      },
+      "maghrib": {
+        "earliest": "19:05",
+        "latest": "19:11"
+      },
+      "isha": {
+        "earliest": "20:16",
+        "latest": "20:26"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "tashkent",
+    "city": "Tashkent",
+    "country": "Uzbekistan",
+    "lat": 41.2995,
+    "lng": 69.2401,
+    "qibla": 240.3,
+    "qiblaCompass": "west-south-west",
+    "method": "Muslim World League",
+    "asr": "hanafi",
+    "asrNote": "Hanafi practice",
+    "highLat": false,
+    "tz": 5,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "02:39",
+        "latest": "06:07"
+      },
+      "dhuhr": {
+        "earliest": "12:22",
+        "latest": "12:24"
+      },
+      "asr": {
+        "earliest": "15:18",
+        "latest": "17:39"
+      },
+      "maghrib": {
+        "earliest": "16:59",
+        "latest": "19:58"
+      },
+      "isha": {
+        "earliest": "18:33",
+        "latest": "21:58"
+      }
+    },
+    "twilightGapDays": 0
+  },
+  {
+    "slug": "sarajevo",
+    "city": "Sarajevo",
+    "country": "Bosnia and Herzegovina",
+    "lat": 43.8563,
+    "lng": 18.4131,
+    "qibla": 134.8,
+    "qiblaCompass": "south-east",
+    "method": "Islamic Community of Bosnia and Herzegovina",
+    "asr": "hanafi",
+    "asrNote": "Hanafi practice",
+    "highLat": false,
+    "tz": 1,
+    "fajrAngle": 18,
+    "ishaAngle": 17,
+    "ranges": {
+      "fajr": {
+        "earliest": "01:38",
+        "latest": "05:35"
+      },
+      "dhuhr": {
+        "earliest": "11:45",
+        "latest": "11:47"
+      },
+      "asr": {
+        "earliest": "14:31",
+        "latest": "17:07"
+      },
+      "maghrib": {
+        "earliest": "16:13",
+        "latest": "19:30"
+      },
+      "isha": {
+        "earliest": "17:52",
+        "latest": "21:43"
+      }
+    },
+    "twilightGapDays": 0
+  }
 ]
