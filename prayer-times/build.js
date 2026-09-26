@@ -67,6 +67,32 @@ const RANGES = (c) => {
         </table>`;
 };
 
+// Makkah is a special case: the city's coordinates ARE the Kaaba's, so the
+// great-circle bearing comes out as 0 and the generic sentence read "the Kaaba
+// lies on a bearing of 0 degrees - roughly north", which is nonsense in the one
+// city where the question does not arise.
+const QIBLA_SECTION = (c) => {
+    const heading = `<h3 style="text-align: left; margin: 28px 0 12px; font-size: 19px;">Qibla direction from ${c.city}</h3>`;
+    if (c.slug === 'mecca') {
+        return `
+        ${heading}
+        <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 16px;">
+            In Makkah the question does not arise in the usual way: the Kaaba is here, inside Masjid al-Haram.
+            Worshippers in the Haram face it directly rather than along a bearing, and elsewhere in the city the
+            direction is simply towards the Haram, so it changes depending on which district you are praying from.
+            A qibla compass calibrated for a distant city will not help you inside Makkah.
+        </p>`;
+    }
+    return `
+        ${heading}
+        <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 16px;">
+            From ${c.city} the Kaaba lies on a bearing of <strong>${c.qibla}&deg;</strong> &mdash; roughly
+            ${c.qiblaCompass} &mdash; measured as a great-circle direction from the city&rsquo;s coordinates
+            (${c.lat}, ${c.lng}). A compass needle points to magnetic north rather than true north, so a phone
+            compass may read a few degrees off depending on local declination.
+        </p>`;
+};
+
 const HIGH_LAT_NOTE = (c) => `
         <h3 style="text-align: left; margin: 28px 0 12px; font-size: 19px;">Why ${c.city} times vary more in summer</h3>
         <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 16px;">
@@ -91,6 +117,7 @@ for (const c of CITIES) {
         .replace(/\{\{ASR_NOTE\}\}/g, c.asrNote)
         .replace(/\{\{HIGH_LAT_NOTE\}\}/g, c.twilightGapDays > 0 ? HIGH_LAT_NOTE(c) : '')
         .replace(/\{\{RANGES\}\}/g, RANGES(c))
+        .replace(/\{\{QIBLA_SECTION\}\}/g, QIBLA_SECTION(c))
         .replace(/\{\{FAJR_ANGLE\}\}/g, c.fajrAngle)
         .replace(/\{\{ISHA_ANGLE\}\}/g, c.ishaAngle)
         .replace(/\{\{ASR_FACTOR\}\}/g, c.asr === 'hanafi' ? 2 : 1)
