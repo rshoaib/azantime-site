@@ -67,6 +67,68 @@ const RANGES = (c) => {
         </table>`;
 };
 
+// Times on the 15th of each month, precomputed by compute-monthly.js in the
+// city's own clock (daylight saving included). Twelve rows of computed data per
+// city is what actually distinguishes one city page from another.
+const { times: solve, julianDay: jdOf } = require('./compute-monthly.js');
+// Hanafi minus standard Asr, in minutes, on two sample days. Computed per city
+// because the gap depends on latitude and season (it is larger in summer).
+const ASR_GAP = (c) => {
+    const gap = (M) => {
+        const jd = jdOf(2027, M, 15);
+        const a = solve({ ...c, asr: 'standard' }, jd).asr, b = solve({ ...c, asr: 'hanafi' }, jd).asr;
+        return a === null || b === null ? null : Math.round((b - a) * 60);
+    };
+    const jun = gap(6), dec = gap(12);
+    if (jun === null || dec === null) return 'The Hanafi time is always the later of the two.';
+    return `In ${c.city} the Hanafi time comes <strong>${jun} minutes</strong> later than the standard time on 15 June and <strong>${dec} minutes</strong> later on 15 December &mdash; ${Math.abs(c.lat) < 15 ? 'close to the equator the season makes little difference.' : `the gap is larger in ${jun > dec ? 'June' : 'December'}, when the long ${c.lat >= 0 ? 'northern' : 'southern'} summer afternoon stretches it out.`}`;
+};
+
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const toMin = (t) => Number(t.slice(0, 2)) * 60 + Number(t.slice(3));
+const dur = (a, b) => { const m = toMin(b) - toMin(a); return `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, '0')} min`; };
+const offsetOn = (zone, month) => {
+    const d = new Date(Date.UTC(2027, month, 15, 12));
+    const part = new Intl.DateTimeFormat('en-US', { timeZone: zone, timeZoneName: 'shortOffset' }).formatToParts(d).find((p) => p.type === 'timeZoneName');
+    return part ? part.value : '';
+};
+const MONTHLY = (c) => {
+    if (!c.monthly) return '';
+    const td = 'padding:6px 8px;border-bottom:1px solid var(--border);';
+    const th = 'text-align:left;padding:6px 8px;border-bottom:2px solid var(--border);';
+    const cell = (v) => v || '&mdash;';
+    const rows = c.monthly.map((r) => `<tr><td style="${td}"><strong>${MONTHS[r.month - 1].slice(0, 3)}</strong></td><td style="${td}">${cell(r.fajr)}</td><td style="${td}">${cell(r.sunrise)}</td><td style="${td}">${cell(r.dhuhr)}</td><td style="${td}">${cell(r.asr)}</td><td style="${td}">${cell(r.maghrib)}</td><td style="${td}">${cell(r.isha)}</td></tr>`).join('\n                ');
+    const jun = c.monthly[5], dec = c.monthly[11], mar = c.monthly[2];
+    const north = c.lat >= 0;
+    const longM = north ? jun : dec, shortM = north ? dec : jun;
+    const fast = (r) => (r.fajr && r.maghrib ? dur(r.fajr, r.maghrib) : null);
+    const fl = fast(longM), fs2 = fast(shortM);
+    const fastLine = fl && fs2
+        ? `A fast from Fajr to Maghrib lasts about <strong>${fl}</strong> on 15 ${MONTHS[longM.month - 1]} and <strong>${fs2}</strong> on 15 ${MONTHS[shortM.month - 1]}, the longest and shortest of these sample days.`
+        : `On 15 ${MONTHS[longM.month - 1]} there is no Fajr by sun angle at all in ${c.city}, so a summer fast is timed by whichever high-latitude rule your mosque uses; on 15 ${MONTHS[shortM.month - 1]} a fast from Fajr to Maghrib lasts about <strong>${fs2 || 'n/a'}</strong>.`;
+    const o1 = offsetOn(c.iana, 0), o7 = offsetOn(c.iana, 6);
+    const dstLine = o1 !== o7
+        ? `Clock times follow local daylight saving (${o1.replace('GMT', 'UTC')} in winter, ${o7.replace('GMT', 'UTC')} in summer), which is why Dhuhr jumps by about an hour when the clocks change even though solar noon barely moves.`
+        : `${c.country} does not use daylight saving (${o1.replace('GMT', 'UTC')} all year), so the shift you see from month to month is the sun alone &mdash; Dhuhr stays within a few minutes of ${mar.dhuhr} all year.`;
+    const ishaLine = c.ishaInterval
+        ? ` Isha is shown ${c.ishaInterval} minutes after Maghrib, as the Umm al-Qura calendar defines it (it is extended to 120 minutes during Ramadan).`
+        : '';
+    return `
+        <h3 style="text-align: left; margin: 28px 0 12px; font-size: 19px;">${c.city} prayer times through the year</h3>
+        <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 16px;">
+            Calculated times on the 15th of each month of ${c.monthlyYear}, in local ${c.city} clock time. ${fastLine}
+            ${dstLine}${ishaLine}
+        </p>
+        <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:14px;color:var(--text-muted);margin-bottom:16px;">
+            <thead><tr><th style="${th}">15th of</th><th style="${th}">Fajr</th><th style="${th}">Sunrise</th><th style="${th}">Dhuhr</th><th style="${th}">Asr</th><th style="${th}">Maghrib</th><th style="${th}">Isha</th></tr></thead>
+            <tbody>
+                ${rows}
+            </tbody>
+        </table>
+        </div>`;
+};
+
 // Makkah is a special case: the city's coordinates ARE the Kaaba's, so the
 // great-circle bearing comes out as 0 and the generic sentence read "the Kaaba
 // lies on a bearing of 0 degrees - roughly north", which is nonsense in the one
@@ -117,6 +179,10 @@ for (const c of CITIES) {
         .replace(/\{\{ASR_NOTE\}\}/g, c.asrNote)
         .replace(/\{\{HIGH_LAT_NOTE\}\}/g, c.twilightGapDays > 0 ? HIGH_LAT_NOTE(c) : '')
         .replace(/\{\{RANGES\}\}/g, RANGES(c))
+        .replace(/\{\{MONTHLY\}\}/g, MONTHLY(c))
+        .replace(/\{\{ASR_GAP\}\}/g, ASR_GAP(c))
+        .replace(/\{\{ISHA_INTERVAL\}\}/g, c.ishaInterval || 0)
+        .replace(/\{\{IANA\}\}/g, c.iana)
         .replace(/\{\{QIBLA_SECTION\}\}/g, QIBLA_SECTION(c))
         .replace(/\{\{FAJR_ANGLE\}\}/g, c.fajrAngle)
         .replace(/\{\{ISHA_ANGLE\}\}/g, c.ishaAngle)

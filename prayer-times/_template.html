@@ -173,6 +173,7 @@
             position and the calculation method used by your local masjid.
         </p>
 {{RANGES}}
+{{MONTHLY}}
         <h3 style="text-align: left; margin: 28px 0 12px; font-size: 19px;">Which calculation method {{CITY}} uses</h3>
         <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 16px;">
             Prayer times are not a single agreed set of numbers. Fajr and Isha depend on how far the sun sits below the
@@ -185,8 +186,7 @@
         <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 16px;">
             Asr is the prayer where the difference is largest and most noticeable. The standard calculation begins Asr
             when an object&rsquo;s shadow equals its own length; the Hanafi calculation waits until the shadow reaches
-            twice that. In practice the Hanafi time falls roughly 45 minutes to an hour and a half later, and the gap
-            widens in winter. Mosques in {{CITY}} generally follow {{ASR_NOTE}}. This single setting explains most
+            twice that. {{ASR_GAP}} Mosques in {{CITY}} generally follow {{ASR_NOTE}}. This single setting explains most
             &ldquo;my app says a different Asr&rdquo; confusion.
         </p>
 {{QIBLA_SECTION}}{{HIGH_LAT_NOTE}}
@@ -260,7 +260,6 @@
     <p>
         <a href="/">Home</a> ·
         <a href="/prayer-times/">All Cities</a> ·
-        <a href="/blog/">Blog</a> ·
         <a href="/privacy/">Privacy</a>
     </p>
 </footer>
@@ -281,6 +280,8 @@
     var FAJR_ANGLE = {{FAJR_ANGLE}};
     var ISHA_ANGLE = {{ISHA_ANGLE}};
     var ASR_FACTOR = {{ASR_FACTOR}};   // 1 = standard, 2 = Hanafi
+    var ISHA_INTERVAL = {{ISHA_INTERVAL}}; // minutes after Maghrib (Umm al-Qura), 0 = use ISHA_ANGLE
+    var TZ = '{{IANA}}';               // format in the city's clock, not the visitor's
 
     var DEG = Math.PI / 180;
     function sin(x) { return Math.sin(x * DEG); }
@@ -353,7 +354,11 @@
         // Add the UTC hours
         var ms = date.getTime() + Math.round(hUTC * 3600000);
         var d = new Date(ms);
-        return d.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit', hour12: true });
+        try {
+            return d.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: TZ });
+        } catch (e) {
+            return d.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit', hour12: true });
+        }
     }
 
     function compute() {
@@ -364,7 +369,7 @@
         var dhuhr   = dhuhrTime(jd);
         var asr     = asrTime(jd);
         var maghrib = timeForAngle(jd, -0.833, 'after');   // sunset (refraction adjusted)
-        var isha    = timeForAngle(jd, -ISHA_ANGLE, 'after');
+        var isha    = ISHA_INTERVAL ? (maghrib === null ? null : maghrib + ISHA_INTERVAL / 60) : timeForAngle(jd, -ISHA_ANGLE, 'after');
 
         document.getElementById('fajr-time').textContent    = fmtUTCHours(fajr);
         document.getElementById('dhuhr-time').textContent   = fmtUTCHours(dhuhr);
