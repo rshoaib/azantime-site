@@ -87,6 +87,7 @@ function block(slug, country) {
             </tbody>
         </table>
         </div>
+        <div class="az-ad" data-ad-placement="hub-mid"></div>
         <h3 style="text-align: left; margin: 28px 0 8px; font-size: 19px;">Questions about prayer times in ${name}</h3>
         ${faqHtml}
         <!-- /HUB-DATA -->`;

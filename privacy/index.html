@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- AZ-ADS: Consent Mode v2 defaults (denied) must run before the AdSense loader -->
+<meta name="google-adsense-account" content="ca-pub-3166995085202346">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{"ad_storage":"denied","ad_user_data":"denied","ad_personalization":"denied","analytics_storage":"denied","functionality_storage":"granted","security_storage":"granted"});</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3166995085202346" crossorigin="anonymous"></script>
+<script src="/assets/consent.js" defer></script>
+<script src="/assets/ads.js" defer></script>
+<!-- /AZ-ADS -->
 <title>Privacy Policy — Azan Time</title>
 <meta name="description" content="Azan Time's privacy policy. We collect no personal data. Location is used on-device only for prayer time calculation and is never sent to our servers.">
 
@@ -38,6 +45,7 @@
         <li style="margin-bottom: 12px;">We do not collect your name, email, phone number, or any account information.</li>
         <li style="margin-bottom: 12px;">Your location stays on your device. It is used to calculate prayer times and is never transmitted to us.</li>
         <li style="margin-bottom: 12px;">The app itself does not track you. A single banner ad is served by Google AdMob — see Advertising below.</li>
+        <li style="margin-bottom: 12px;">This website shows Google AdSense ads; until you accept in the cookie banner they are non-personalised. See "This website" below.</li>
         <li style="margin-bottom: 12px;">We do not sell or share your data with anyone — because we don't have it.</li>
     </ul>
 
@@ -80,12 +88,32 @@
 
     <h2 style="text-align: left; font-size: 28px; color: var(--navy); margin: 40px 0 16px;">This website (azantime.app)</h2>
     <p style="color: var(--text-muted); margin-bottom: 24px;">
-        The website is a set of static pages hosted on GitHub Pages. It has no accounts, no forms, no analytics scripts and
-        no advertising, and it sets no cookies. The home page loads its typeface from Google Fonts, so Google sees the request (see Google's privacy policy). City prayer times and the Hijri converter are calculated in your browser;
-        nothing you enter is sent anywhere. Like any web host, GitHub receives standard request data (such as your IP
-        address and browser type) when it serves a page; see GitHub's privacy statement. Links to Google Play take you to
-        Google's site, which has its own policy. If this website ever adds analytics or ads, this section will say so
-        before they go live.
+        The website is a set of static pages hosted on GitHub Pages. It has no accounts and no forms. City prayer times
+        and the Hijri converter are calculated in your browser; nothing you enter is sent anywhere. Like any web host,
+        GitHub receives standard request data (such as your IP address and browser type) when it serves a page; see
+        GitHub's privacy statement. The home page loads its typeface from Google Fonts, so Google sees that request.
+    </p>
+
+    <h3 style="color: var(--navy); margin-bottom: 8px; font-size: 18px;">Advertising on this website (Google AdSense)</h3>
+    <p style="color: var(--text-muted); margin-bottom: 24px;">
+        The website shows ads served by Google AdSense to help keep Azan Time free. Google and other third-party vendors,
+        including Google, use cookies to serve ads based on a visitor's prior visits to this website or other websites.
+        Google's use of advertising cookies enables it and its partners to serve ads based on those visits. Ads are placed
+        in the reading sections of pages (for example below a city's yearly timetable), not next to the adhan or Qibla features.
+        See <a href="https://policies.google.com/technologies/ads" rel="noopener">how Google uses information from sites that use its services</a>.
+    </p>
+
+    <h3 style="color: var(--navy); margin-bottom: 8px; font-size: 18px;">Cookies and your consent choice</h3>
+    <p style="color: var(--text-muted); margin-bottom: 24px;">
+        On your first visit a banner asks whether you accept advertising cookies. Until you choose, and if you reject,
+        Google Consent Mode is set to "denied": Google may still show ads, but they are non-personalised and Google
+        does not use advertising cookies to personalise them. If you accept, Google may use cookies to personalise ads.
+        Your choice is stored in your browser (local storage, key <code>consent</code>) so the banner does not return on
+        every page; you can change it at any time with the "Cookie choices" link in the footer, or by clearing this
+        site's data in your browser. You can also turn off personalised advertising for your Google account at
+        <a href="https://adssettings.google.com" rel="noopener">Google Ads Settings</a>, or opt out of some third-party
+        vendors' use of cookies at <a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a>.
+        The website itself sets no analytics cookies.
     </p>
     
     <h2 style="text-align: left; font-size: 28px; color: var(--navy); margin: 40px 0 16px;">Children's privacy</h2>
@@ -123,7 +151,7 @@
         <a href="/about/">About</a> ·
         <a href="/contact/">Contact</a> ·
         <a href="/privacy/">Privacy</a> ·
-        <a href="/terms/">Terms</a>
+        <a href="/terms/">Terms</a> · <a href="#" data-cookie-choices>Cookie choices</a>
     </p>
 </footer>
 
