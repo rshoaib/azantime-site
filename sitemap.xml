@@ -8,7 +8,9 @@
     <url><loc>https://azantime.app/</loc><lastmod>2026-04-22</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
     <url><loc>https://azantime.app/prayer-times/</loc><lastmod>2026-11-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
     <url><loc>https://azantime.app/hijri-converter/</loc><lastmod>2026-04-22</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://azantime.app/privacy/</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
+    <url><loc>https://azantime.app/about/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+    <url><loc>https://azantime.app/contact/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+    <url><loc>https://azantime.app/privacy/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
 
     <!-- Country hub pages — funnel PageRank to city pages, target country-level queries -->
     <url><loc>https://azantime.app/prayer-times/pakistan/</loc><lastmod>2026-11-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>

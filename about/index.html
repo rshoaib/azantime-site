@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Azan Time — Who Makes It and How the Times Are Calculated</title>
+<meta name="description" content="Azan Time is made by Rizwan, an independent developer. How the city prayer times, Qibla direction and Hijri dates on this site are calculated, and which methods are used.">
+
+<link rel="canonical" href="https://azantime.app/about/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="hero" style="padding-bottom: 60px;">
+    <nav>
+        <div class="logo">🕌 <a href="/" style="color:#fff;">Azan Time</a></div>
+        <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/prayer-times/">Cities</a></li>
+            <li><a href="/#download" class="cta">Download</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-content">
+        <h1 style="font-size: 48px;">About Azan Time</h1>
+        <p class="sub">Who makes it, and how the numbers on this site are worked out</p>
+    </div>
+</header>
+
+<section style="max-width: 800px; padding-top: 60px;">
+    <p style="font-size: 18px; color: var(--text-muted); margin-bottom: 32px;">
+        Azan Time is a free prayer-times app for Android and this companion website. Both are made by
+        <strong>Rizwan</strong>, an independent developer who publishes apps under the name OVC Tech.
+    </p>
+
+    <h2 style="text-align: left; font-size: 28px; color: var(--navy); margin: 40px 0 16px;">What this website does</h2>
+    <ul style="color: var(--text-muted); font-size: 16px; padding-left: 20px; margin-bottom: 24px;">
+        <li style="margin-bottom: 12px;"><strong>City prayer times.</strong> Each <a href="/prayer-times/">city page</a> shows Fajr, Sunrise, Dhuhr, Asr, Maghrib and Isha month by month, computed from the city's coordinates and time zone.</li>
+        <li style="margin-bottom: 12px;"><strong>Qibla direction.</strong> The bearing to the Kaaba from each city, from the great-circle formula.</li>
+        <li style="margin-bottom: 12px;"><strong>Hijri dates.</strong> The <a href="/hijri-converter/">Hijri converter</a> converts between Gregorian and Hijri dates.</li>
+    </ul>
+
+    <h2 style="text-align: left; font-size: 28px; color: var(--navy); margin: 40px 0 16px;">How the times are calculated</h2>
+    <p style="color: var(--text-muted); margin-bottom: 24px;">
+        Prayer times come from the position of the sun. The pages use the NOAA solar-position equations to find, for each
+        day, the moment the sun reaches the angle each prayer is defined by: the twilight angle for Fajr and Isha, the
+        sun's centre crossing the meridian for Dhuhr, the shadow-length rule for Asr, and sunset for Maghrib.
+    </p>
+    <p style="color: var(--text-muted); margin-bottom: 24px;">
+        The twilight angles differ between authorities, so every city page names the convention it uses, normally the one
+        most mosques in that country follow: for example Muslim World League, ISNA, Umm al-Qura University (Makkah),
+        Egyptian General Authority of Survey, University of Islamic Sciences (Karachi), Diyanet, JAKIM, MUIS or Kemenag.
+        Where a country has no single standard, the page says so and uses an 18&deg;/17&deg; convention. Asr is shown with
+        the standard (Shafi'i, Maliki, Hanbali) shadow factor, or the Hanafi factor where that is the local practice, and
+        each page shows how many minutes apart the two are.
+    </p>
+    <p style="color: var(--text-muted); margin-bottom: 24px;">
+        Times are given in standard time. Where daylight saving applies, add one hour. At high latitudes in summer the sun
+        may never reach the Fajr or Isha angle; the pages say when that happens instead of inventing a time, because
+        mosques there use different rules.
+    </p>
+    <p style="color: var(--text-muted); margin-bottom: 24px;">
+        The Hijri converter uses the Umm al-Qura calendar. The real start of an Islamic month depends on moon sighting
+        where you live, so a date can differ by a day from your local announcement.
+    </p>
+
+    <h2 style="text-align: left; font-size: 28px; color: var(--navy); margin: 40px 0 16px;">Please check with your mosque</h2>
+    <p style="color: var(--text-muted); margin-bottom: 24px;">
+        Calculated times are a close guide, not a religious ruling. Your local mosque's timetable takes precedence,
+        especially for Fajr, Isha and the start of Ramadan and Eid.
+    </p>
+
+    <h2 style="text-align: left; font-size: 28px; color: var(--navy); margin: 40px 0 16px;">Corrections</h2>
+    <p style="color: var(--text-muted); margin-bottom: 48px;">
+        If a time, a method or a Qibla bearing looks wrong for your city, please <a href="/contact/">tell me</a>. Include the
+        city and the timetable you compare against. I correct the page and note the change.
+    </p>
+</section>
+
+
+<footer>
+    <p><strong>Azan Time</strong> · Built with love for the ummah · May Allah accept.</p>
+    <p>
+        <a href="/">Home</a> ·
+        <a href="/prayer-times/">Cities</a> ·
+        <a href="/about/">About</a> ·
+        <a href="/contact/">Contact</a> ·
+        <a href="/privacy/">Privacy</a> ·
+        <a href="/terms/">Terms</a>
+    </p>
+</footer>
+
+</body>
+</html>
