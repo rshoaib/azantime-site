@@ -54,6 +54,25 @@ function block(slug, country) {
         facts.push(`Dhuhr on 15 March is at ${first.d} in ${first.c.city} and ${last.d} in ${last.c.city}: the same prayer, ${toMin(last.d) - toMin(first.d)} minutes apart on the clock, because of where each city sits in its time zone.`);
     }
 
+    // Computed FAQ (AdSense gate item 3, 2026-11-16): the hubs were 261-286 words; these answers come
+    // from the same monthly tables, so every number differs by country and is reproducible.
+    const fastOn = (c, mi) => { const r = c.monthly[mi]; return r.fajr && r.maghrib ? toMin(r.maghrib) - toMin(r.fajr) : null; };
+    const ref = cs[0];
+    const fJun = fastOn(ref, 5), fDec = fastOn(ref, 11);
+    const longer = fJun !== null && fDec !== null ? (fJun >= fDec ? ['June', fJun, 'December', fDec] : ['December', fDec, 'June', fJun]) : null;
+    const qs = cs.filter((c) => c.slug !== 'mecca').map((c) => c.qibla);
+    const qMin = qs.length ? Math.min(...qs) : null, qMax = qs.length ? Math.max(...qs) : null;
+    const methods = [...new Set(cs.map((c) => c.method))];
+    const asrH = cs.filter((c) => c.asr === 'hanafi').map((c) => c.city);
+    const faq = [];
+    if (longer) faq.push([`When is the longest fast in ${name}?`, `Around the June solstice${longer[0] === 'December' ? ' in the northern hemisphere, but here the long days fall in December' : ''}. In ${ref.city}, a fast from Fajr to Maghrib on 15 ${longer[0]} lasts ${fmtDur(longer[1])}; on 15 ${longer[2]} it lasts ${fmtDur(longer[3])}. Ramadan moves about 11 days earlier each year, so the fast length you meet depends on the year.`]);
+    if (qMin !== null) faq.push([`Which way is the Qibla from ${name}?`, qMin === qMax ? `${qMin}&deg; from true north.` : `Between ${qMin}&deg; and ${qMax}&deg; from true north, depending on the city (see the table). These are true-north bearings; a phone compass shows magnetic north unless it corrects for declination.`]);
+    const methodText = methods.map((m) => m === 'no single national standard — mosques differ' ? 'there is no single national standard (mosques differ), so the pages use an 18&deg;/17&deg; twilight convention' : m).join('; ');
+    faq.push([`Which calculation method is used for ${name}?`, `${methodText.charAt(0).toUpperCase() + methodText.slice(1)}, with ${asrH.length ? `the Hanafi Asr time in ${asrH.join(', ')}` : 'the standard Asr time'}. Each city page states how many minutes apart the standard and Hanafi Asr times are, and names its method.`]);
+    if (!longer && cs.some((c) => !c.monthly[5].fajr)) faq.push([`Why is there no Fajr time in June for some cities in ${name}?`, `In mid-summer the sun does not sink far enough below the horizon for the Fajr and Isha twilight angles to be reached, so no time can be calculated by angle. Mosques then use a high-latitude rule (for example one-seventh of the night or the nearest day with a true Fajr); the city pages say when this happens instead of inventing a time.`]);
+    const faqHtml = faq.map(([q, a]) => `<h4 style="margin: 16px 0 6px; font-size: 16px;">${q}</h4>
+        <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 8px;">${a}</p>`).join('\n        ');
+
     return `<!-- HUB-DATA -->
         <h3 style="text-align: left; margin: 28px 0 12px; font-size: 19px;">How the cities in ${name} compare</h3>
         <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 16px;">
@@ -68,6 +87,8 @@ function block(slug, country) {
             </tbody>
         </table>
         </div>
+        <h3 style="text-align: left; margin: 28px 0 8px; font-size: 19px;">Questions about prayer times in ${name}</h3>
+        ${faqHtml}
         <!-- /HUB-DATA -->`;
 }
 

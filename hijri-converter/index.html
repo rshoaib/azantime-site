@@ -241,6 +241,29 @@
     </div>
 </section>
 
+<section style="background: var(--bg); margin: 0; max-width: none;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+        <h2 style="text-align: left; margin-bottom: 24px;">How to use the converter</h2>
+        <ol style="font-size: 16px; color: var(--text-muted); padding-left: 22px; margin-bottom: 16px;">
+            <li style="margin-bottom: 8px;">Pick the direction with the tabs: <strong>Gregorian → Hijri</strong> or <strong>Hijri → Gregorian</strong>.</li>
+            <li style="margin-bottom: 8px;">Enter the day, choose the month from the list and type the year (AD for Gregorian, AH for Hijri).</li>
+            <li style="margin-bottom: 8px;">Press <strong>Convert to Hijri</strong> or <strong>Convert to Gregorian</strong>. The result appears in the box below the button; the Hijri → Gregorian result also gives the weekday.</li>
+            <li style="margin-bottom: 8px;">Today's Hijri date is always shown at the top, and the list under the converter gives this year's key dates (Ramadan, Eid al-Fitr, Day of Arafah, Eid al-Adha and others).</li>
+        </ol>
+        <h3 style="text-align: left; margin: 24px 0 12px; font-size: 19px;">Worked example</h3>
+        <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 16px;">
+            <strong>16 November 2026</strong> converts to <strong>6 Jumada al-Thani 1448 AH</strong>. Going the other way,
+            <strong>1 Ramadan 1448 AH</strong> falls on <strong>8 February 2027</strong> in the Umm al-Qura calendar, so the first
+            fast of Ramadan 1448 is expected that day; where the month is started by local moon sighting it can begin a day later.
+            Eid al-Fitr 1447 (1 Shawwal) was 20 March 2026 and Eid al-Adha 1447 (10 Dhu al-Hijjah) was 27 May 2026 by the same calendar.
+        </p>
+        <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 16px;">
+            The converter uses your browser's built-in Umm al-Qura calendar, the official calendar of Saudi Arabia. Very old
+            browsers without it fall back to the arithmetic (tabular) Islamic calendar, which can be a day or two apart.
+        </p>
+    </div>
+</section>
+
 <section style="background: var(--cream); margin: 0; max-width: none;">
     <div style="max-width: 800px; margin: 0 auto; padding: 0 24px;">
         <h2 style="text-align: left; margin-bottom: 24px;">About the Hijri Calendar</h2>
@@ -321,8 +344,10 @@
 
 <script>
 /*
- * Hijri ↔ Gregorian conversion using a well-known Julian Day Number algorithm
- * (Kuwaiti / tabular variant, very close to Umm al-Qura for modern dates).
+ * Hijri ↔ Gregorian conversion. Uses the browser's built-in Umm al-Qura calendar
+ * (Intl, calendar "islamic-umalqura") — the calendar the page text names. The
+ * tabular (Kuwaiti) Julian Day algorithm below is only a fallback for browsers
+ * without it; it can differ from Umm al-Qura by a day or two.
  * No external dependency — works offline once loaded.
  */
 function gregorianToJD(y, m, d) {
@@ -353,8 +378,8 @@ function jdToGregorian(jd) {
     return { year, month, day };
 }
 
-function gregorianToHijri(gy, gm, gd) {
-    const jd = gregorianToJD(gy, gm, gd);
+function tabularGregorianToHijri(gy, gm, gd) {
+    const jd = Math.floor(gregorianToJD(gy, gm, gd) + 0.5); // integer day number (the raw JD ends in .5, which made fractional days)
     const l  = jd - 1948440 + 10632;
     const n  = Math.floor((l - 1) / 10631);
     const l2 = l - 10631 * n + 354;
@@ -368,10 +393,39 @@ function gregorianToHijri(gy, gm, gd) {
     return { year, month, day };
 }
 
-function hijriToGregorian(hy, hm, hd) {
+function tabularHijriToGregorian(hy, hm, hd) {
     const jd = Math.floor((11 * hy + 3) / 30) + 354 * hy + 30 * hm
              - Math.floor((hm - 1) / 2) + hd + 1948440 - 385;
     return jdToGregorian(jd);
+}
+
+
+// Umm al-Qura via Intl when the browser supports it.
+const UQ = (function () {
+    try {
+        const f = new Intl.DateTimeFormat('en-u-ca-islamic-umalqura', { day: 'numeric', month: 'numeric', year: 'numeric', timeZone: 'UTC' });
+        return f.resolvedOptions().calendar === 'islamic-umalqura' ? f : null;
+    } catch (e) { return null; }
+})();
+function uqOf(gy, gm, gd) {
+    const parts = UQ.formatToParts(new Date(Date.UTC(gy, gm - 1, gd, 12)));
+    const get = (t) => parseInt(parts.find((x) => x.type === t).value, 10);
+    return { year: get('year'), month: get('month'), day: get('day') };
+}
+function gregorianToHijri(gy, gm, gd) {
+    return UQ ? uqOf(gy, gm, gd) : tabularGregorianToHijri(gy, gm, gd);
+}
+function hijriToGregorian(hy, hm, hd) {
+    const est = tabularHijriToGregorian(hy, hm, hd);
+    if (!UQ) return est;
+    // Search a few days around the tabular estimate for the Umm al-Qura match.
+    const base = Date.UTC(est.year, est.month - 1, est.day, 12);
+    for (const off of [0, -1, 1, -2, 2, -3, 3]) {
+        const d = new Date(base + off * 86400000);
+        const h = uqOf(d.getUTCFullYear(), d.getUTCMonth() + 1, d.getUTCDate());
+        if (h.year === hy && h.month === hm && h.day === hd) return { year: d.getUTCFullYear(), month: d.getUTCMonth() + 1, day: d.getUTCDate() };
+    }
+    return est; // e.g. day 30 in a 29-day Umm al-Qura month
 }
 
 const HIJRI_MONTHS = [
