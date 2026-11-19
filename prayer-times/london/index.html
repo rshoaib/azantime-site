@@ -472,6 +472,8 @@
 })();
 </script>
 
+<!-- AZ-ADS: hold ad requests until first paint (PSI: AdSense iframes created before the first frame stalled first paint to 1.2-2.3 s) -->
+<script>(window.adsbygoogle=window.adsbygoogle||[]).pauseAdRequests=1;(function(){var d=0;function go(){if(d)return;d=1;setTimeout(function(){window.adsbygoogle.pauseAdRequests=0},0)}try{new PerformanceObserver(function(l){if(l.getEntriesByName("first-contentful-paint").length)go()}).observe({type:"paint",buffered:true})}catch(e){}setTimeout(go,3000)})();</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3166995085202346" crossorigin="anonymous"></script>
 </body>
 </html>
